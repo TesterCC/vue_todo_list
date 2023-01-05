@@ -1,7 +1,7 @@
 <template>
     <!-- 编写html内容 -->
     <div>
-        main
+        footer
     </div>
   </template>
   
