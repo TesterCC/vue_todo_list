@@ -38,6 +38,19 @@
   <div>
     {{ data.obj.update_time }}
   </div>
+  <hr>
+  <div>
+    {{ ip }}
+  </div>
+  <div>
+    {{ port }}
+  </div>
+  <div>
+    {{ obj }}
+  </div>
+  <div>
+    {{ obj.create_time }}
+  </div>
 
 </template>
 
@@ -48,7 +61,8 @@
 // import NavFooter from '@/components/navFooter/NavFooter'
 
 // 编写js内容
-import { defineComponent, ref, reactive } from 'vue'
+import { defineComponent, ref, reactive, toRefs } from 'vue'
+// toRefs能将响应式对象转化为普通对象，然后分包出来
 
 export default defineComponent({
   name: 'Home', // 组件名称
@@ -86,8 +100,9 @@ export default defineComponent({
       num,
       name,
       arr,
-      obj,
-      data
+      // obj,
+      data,
+      ...toRefs(data)   // ES6 , 注意解构的数据名不能与前面的冲突，不然最后定义的数据名会覆盖前面定义的。比如obj
     }
   }
 })
