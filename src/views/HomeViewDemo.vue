@@ -4,10 +4,14 @@
     <nav-main></nav-main>
     <nav-footer></nav-footer>
   </div> -->
-  <div>
+  <!-- 定义点击事件 -->
+  <div @click="clickNum(100)">
     {{ num }}
   </div>
-  <div>
+  <div @click="clickNum1">
+    {{ num1 }}
+  </div>
+  <!-- <div>
     {{ name }}
   </div>
   <div>
@@ -50,7 +54,7 @@
   </div>
   <div>
     {{ obj.create_time }}
-  </div>
+  </div> -->
 
 </template>
 
@@ -65,7 +69,7 @@ import { defineComponent, ref, reactive, toRefs } from 'vue'
 // toRefs能将响应式对象转化为普通对象，然后分包出来
 
 export default defineComponent({
-  name: 'Home', // 组件名称
+  name: 'HomeDemo', // 组件名称
   // 接收父组件的数据
   props: {
 
@@ -77,7 +81,9 @@ export default defineComponent({
     // NavFooter
   },
   setup(props, ctx) {
-    let num = ref(10)
+    // let num = reactive(10)
+    let num1 = ref(20)
+
     let name = ref('Tester')
     let arr = ref(["python", "go", "java", "php", "js"])   // 定义数组
     // 定义对象
@@ -85,24 +91,41 @@ export default defineComponent({
       age: 20
     })
 
+    // ES6语法箭头函数
+    let clickNum = (val) => {
+      // 访问reactive定义的数据，形式为， 返回数据名.key
+      console.log("click num, value is: ", val)
+      console.log(data.num)
+    }
+
+    let clickNum1 = () => {
+      // 访问ref定义的数据，形式为 数据名.value
+      console.log("click num 1...")
+      console.log(num1.value)
+      // console.log(num1)   // print obj
+    }
+
     // 一次性定义多个数据用reactive
     let data = reactive({
-      ip:"127.0.0.1",
-      port:5000,
+      ip: "127.0.0.1",
+      port: 5000,
       obj: {
         create_time: 1672960084,
         update_time: 1672970788,
-      }
+      },
+      num: 10
     })
 
     // 将定义好的数据 return 出去, 否则页面上不会展示
     return {
-      num,
-      name,
-      arr,
-      // obj,
-      data,
-      ...toRefs(data)   // ES6 , 注意解构的数据名不能与前面的冲突，不然最后定义的数据名会覆盖前面定义的。比如obj
+      num1,
+      // name,
+      // arr,
+      // // obj,
+      // data,
+      ...toRefs(data),   // ES6 , 注意解构的数据名不能与前面的冲突，不然最后定义的数据名会覆盖前面定义的。比如obj
+      clickNum,
+      clickNum1
     }
   }
 })
