@@ -1,34 +1,25 @@
 <template>
     <!-- 编写html内容 -->
     <div>
-        header
+        <input placeholder="Please input task name" v-model="value" />
     </div>
-  </template>
-  
-  <script>
-  // 编写js内容
-  import {defineComponent} from 'vue'
-  export default defineComponent({
-    name: 'Home', // 组件名称
-    // 接收父组件的数据
-    props:{
-  
-    },
-    // 定义子组件
-    components: {
-  
-    },
-    setup(props, ctx){
-      return {
-        
-      }
-  
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
+    name: 'navHeader',
+    setup() {
+        let value = ref('')
+        return {
+            value
+        }
+
     }
-  })
-  
-  </script>
-  
-  
-  <style scoped lang='scss'>
-  
-  </style>
+})
+</script>
+
+
+<style scoped lang='scss'>
+
+</style>

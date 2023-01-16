@@ -1,7 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+// import NavMain from '../components/navMain/NavMain.vue'
+
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'navMain',
+  //   component: NavMain
+  // },
   {
     path: '/',
     name: 'home',
