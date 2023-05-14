@@ -1,6 +1,6 @@
 <template>
-    <!-- 编写html内容 -->
-    <div>
+    <!-- 编写html内容 6:00 video/23031 3-7 -->
+    <div class="container">
         Finished {{ isComplete }} / All {{ all }}
     </div>
     <div v-if="isComplete > 0">

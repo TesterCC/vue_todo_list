@@ -1,7 +1,9 @@
 <template>
     <!-- 编写html内容 -->
     <div>
-        <input placeholder="Please input task name" v-model="value" />
+        <input placeholder="Please input task name" v-model="value" 
+        @keydown.enter="enter"/>
+        <!--bind keyboard event enter-->
     </div>
 </template>
 
@@ -11,8 +13,13 @@ export default defineComponent({
     name: 'navHeader',
     setup() {
         let value = ref('')
+        // press enter to confirm
+        let enter = () => {
+            console.log(value.value)
+        }
         return {
-            value
+            value,
+            enter   // no return can not use 
         }
 
     }
@@ -21,5 +28,7 @@ export default defineComponent({
 
 
 <style scoped lang='scss'>
-
+input {
+    margin-bottom: 10px;
+}
 </style>
