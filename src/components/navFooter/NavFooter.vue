@@ -1,10 +1,12 @@
 <template>
     <!-- 编写html内容 6:00 video/23031 3-7 -->
     <div class="container">
+    <div>
         Finished {{ isComplete }} / All {{ all }}
     </div>
-    <div v-if="isComplete > 0">
-        <button>Clear Finished</button>
+    <div v-if="isComplete > 0" class="btn">
+        <button @click="clear">Clear Finished</button>
+    </div>
     </div>
 </template>
 
@@ -16,9 +18,16 @@ export default defineComponent({
         let isComplete = ref(1)
         let all = ref(3)
 
+        // clear finished
+        let clear = () => {
+            console.log('clear')
+
+        }
+
         return {
             isComplete,
-            all
+            all,
+            clear
         }
     }
 })
@@ -26,5 +35,11 @@ export default defineComponent({
 
 
 <style scoped lang='scss'>
-
+.container {
+    display:flex;
+    align-items: center;
+    .btn{
+        margin-left: 10px;
+    }
+}
 </style>
