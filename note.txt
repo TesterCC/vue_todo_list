@@ -3,5 +3,5 @@ npm install
 npm run serve
 
 process:
-3-7
+3-9 如何拿到和操作数据
 https://www.imooc.com/video/23031
