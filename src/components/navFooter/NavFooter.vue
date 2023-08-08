@@ -1,5 +1,5 @@
 <template>
-    <!-- 编写html内容 6:00 video/23031 3-7 -->
+    <!-- 编写html内容 -->
     <div class="container">
     <div>
         Finished {{ isComplete }} / All {{ all }}
