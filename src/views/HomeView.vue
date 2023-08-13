@@ -1,8 +1,18 @@
 <template>
   <div>
-    <nav-header></nav-header>
+    <!-- <nav-header></nav-header>
     <nav-main></nav-main>
-    <nav-footer></nav-footer>
+    <nav-footer></nav-footer> -->
+
+  <div>
+    {{ num1 }} --- {{ num2 }}
+    two number total: {{ addNum }}
+  </div>
+
+  <div>
+    <button @click="add"> add</button>
+  </div>
+
   </div>
 </template>
 
@@ -13,7 +23,7 @@ import NavMain from '@/components/navMain/NavMain'
 import NavFooter from '@/components/navFooter/NavFooter'
 
 // 编写js内容
-import { defineComponent } from 'vue'
+import { defineComponent, computed, ref } from 'vue'
 // toRefs能将响应式对象转化为普通对象，然后分包出来
 
 export default defineComponent({
@@ -28,11 +38,30 @@ export default defineComponent({
     NavMain,
     NavFooter
   },
-  setup(props, ctx) {
+  // setup(props, ctx) {
+  setup() {
 
     // 将定义好的数据 return 出去, 否则页面上不会展示
-    return {
+    let num1 = ref(10)
+    let num2 = ref(20)
 
+    // also a variable
+    let addNum = computed(() => {
+      // must return a value
+      // logic code
+      return num1.value + num2.value
+    })
+
+    let add = () => {
+      num1.value ++
+      num2.value ++
+    }
+
+    return {
+      num1,
+      num2,
+      addNum,
+      add
     }
   }
 })
