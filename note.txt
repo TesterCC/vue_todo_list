@@ -3,5 +3,7 @@ npm install
 npm run serve
 
 process:
-3-9 如何拿到和操作数据
-https://www.imooc.com/video/23031
+4-2 实现todolist之跳转路由
+https://www.imooc.com/video/23026
+
+前端的路由可以理解为一个容器，一个页面代表一个路由；vue中每一个页面对应一个（路由）组件；一般会把这个路由组件拆分成子组件。

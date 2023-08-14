@@ -27,7 +27,7 @@ import { defineComponent, computed, ref } from 'vue'
 // toRefs能将响应式对象转化为普通对象，然后分包出来
 
 export default defineComponent({
-  name: 'Home', // 组件名称
+  name: 'HomeView2', // 组件名称
   // 接收父组件的数据
   props: {
 

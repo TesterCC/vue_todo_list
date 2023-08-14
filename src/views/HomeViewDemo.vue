@@ -69,7 +69,7 @@ import { defineComponent, ref, reactive, toRefs } from 'vue'
 // toRefs能将响应式对象转化为普通对象，然后分包出来
 
 export default defineComponent({
-  name: 'HomeDemo', // 组件名称
+  name: 'HomeView', // 组件名称
   // 接收父组件的数据
   props: {
 
