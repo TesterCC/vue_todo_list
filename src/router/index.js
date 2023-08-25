@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 import HomeView from '../views/Home.vue'
 import HomeViewDemo from '../views/HomeViewDemo.vue'
 import HomeViewDemo2 from '../views/HomeViewDemo2.vue'
+import Start from '../views/Start.vue'
 
 // 路由通常有两种模式，hash模式（URL路径中带/#/）和history模式
 
@@ -13,6 +14,11 @@ const routes = [
   {
     // 代表首页
     path: '/',
+    name: 'start',
+    component: Start
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomeView
   },

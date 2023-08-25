@@ -32,6 +32,7 @@ import { defineComponent, computed, ref } from 'vue'
 // import useStore to operate state, return a store obj
 import {useStore} from 'vuex'
 
+
 export default defineComponent({
   name: 'Home', // 组件名称
   // 接收父组件的数据
