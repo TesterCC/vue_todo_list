@@ -31,6 +31,7 @@ import { defineComponent, computed, ref } from 'vue'
 
 // import useStore to operate state, return a store obj
 import {useStore} from 'vuex'
+import {useRoute, useRouter} from 'vue-router'
 
 
 export default defineComponent({
@@ -52,6 +53,27 @@ export default defineComponent({
     let list = computed(()=> {
       return store.state.list
     })
+
+    // 4-3 介绍路由传参
+    // router是全局路由对象
+    let router = useRouter()
+    // route是当前路由对象
+    let route = useRoute()
+    // // query传递过来的参数都是字符型
+    // console.log(route.query)
+    // console.log(route.query.num)
+    // console.log(typeof route.query.num)  // 打印类型
+    // console.log(parseInt(route.query.num))  // 转成int
+    // console.log(typeof parseInt(route.query.num))  // 查看类型
+    // console.log(JSON.parse(route.query.obj))  // json字符串还原为json对象
+    // console.log(typeof JSON.parse(route.query.obj))  // 查看类型
+
+    // console.log(route.params)
+    
+    let goto = () => {
+
+    }
+
 
     // 3-11 通过计算属性获取vuex中定义的todo list的数据
 

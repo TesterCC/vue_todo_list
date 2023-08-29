@@ -14,12 +14,13 @@ const routes = [
   {
     // 代表首页
     path: '/',
-    name: 'start',
+    name: 'Start',
     component: Start
   },
   {
     path: '/home',
-    name: 'home',
+    // path: '/home/:id',  // for test router push params
+    name: 'Home',
     component: HomeView
   },
   {
