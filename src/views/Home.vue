@@ -15,6 +15,13 @@
   <div>
     <button @click="add"> add</button>
   </div> -->
+ 
+  <hr>
+  <p></p>
+  <div>
+    test onMounted
+    {{ num }} --- {{ name }} --- {{ obj }}
+  </div>
 
   </div>
 </template>
@@ -26,7 +33,7 @@ import NavMain from '@/components/navMain/NavMain'
 import NavFooter from '@/components/navFooter/NavFooter'
 
 // 编写js内容
-import { defineComponent, computed, ref } from 'vue'
+import { defineComponent, computed, ref, onMounted } from 'vue'
 // toRefs能将响应式对象转化为普通对象，然后分包出来
 
 // import useStore to operate state, return a store obj
@@ -69,6 +76,17 @@ export default defineComponent({
     // console.log(typeof JSON.parse(route.query.obj))  // 查看类型
 
     // console.log(route.params)
+
+    // 4-3
+    let num = ref(null)
+    let name = ref('')
+    let obj = ref({})
+
+    onMounted(() => {
+      num.value = route.query.num*1 // query.num is str, *1 tran to int
+      name.value = route.query.name
+      obj.value = JSON.parse(route.query.obj)
+    })
     
     let goto = () => {
 
@@ -99,7 +117,10 @@ export default defineComponent({
       // num2,
       // addNum,
       // add
-      list
+      list,
+      num,
+      name,
+      obj
     }
   }
 })
