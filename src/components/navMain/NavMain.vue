@@ -1,10 +1,10 @@
 <template>
     <!-- 编写html内容 -->
-    <div v-for="(item,index) in list" :key="index">
+    <div v-for="(item, index) in list" :key="index">
         <div class="item">
-            <input type="checkbox" v-model="item.complete" >
-            {{item.title}}
-            <button class="del" @click="del(item,index)">delete</button>  <!-- when mouse on, display delete button -->
+            <input type="checkbox" v-model="item.complete">
+            {{ item.title }}
+            <button class="del" @click="del(item, index)">delete</button> <!-- when mouse on, display delete button -->
         </div>
     </div>
 </template>
@@ -13,31 +13,38 @@
 import { defineComponent, ref } from 'vue'
 export default defineComponent({
     name: 'navMain',
+    // 用 props 接收传递过来的 list
+    props: {
+        list: {
+            type: Array,
+            required: true
+        }
+
+    },
     setup() {
-        let list = ref([
-            {
-                title: 'python',
-                complete: true
-            },
-            {
-                title: 'go',
-                complete: false
-            },
-            {
-                title: 'rust',
-                complete: false
-            }
-        ])
+        // let list = ref([
+        //     {
+        //         title: 'python',
+        //         complete: true
+        //     },
+        //     {
+        //         title: 'go',
+        //         complete: false
+        //     },
+        //     {
+        //         title: 'rust',
+        //         complete: false
+        //     }
+        // ])
 
         // delete task
-        let del = (item,index) => {
+        let del = (item, index) => {
             console.log(item)
             console.log(index)
         }
         return {
-        list,
-        del
-    }
+            del
+        }
 
     },
 
@@ -46,12 +53,13 @@ export default defineComponent({
 
 
 <style scoped lang='scss'>
-.item{
+.item {
     height: 35px;
     line-height: 35px;
     position: relative;
     width: 170px;
     cursor: pointer;
+
     button {
         position: absolute;
         right: 20px;
@@ -59,9 +67,11 @@ export default defineComponent({
         display: none;
         z-index: 99;
     }
+
     // scss syntax
-    &:hover{
+    &:hover {
         background: #ddd;
+
         button {
             display: block;
         }

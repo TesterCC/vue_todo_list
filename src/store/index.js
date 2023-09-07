@@ -17,7 +17,11 @@ export default createStore({
       {
           title: 'rust',
           complete: true
-      }
+      },
+      {
+        title: 'c',
+        complete: false
+    }
   ]
   },
   getters: {

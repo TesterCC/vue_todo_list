@@ -11,11 +11,14 @@
 import { defineComponent, ref } from 'vue'
 export default defineComponent({
     name: 'navHeader',
-    setup() {
-        let value = ref('')
+    setup(props,ctx) {
+        // input content
+        let value = ref('')  
         // press enter to confirm
         let enter = () => {
-            console.log(value.value)
+            // send input bar content to parent component
+            ctx.emit('add', value.value)
+            // console.log(value.value)
         }
         return {
             value,
