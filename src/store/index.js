@@ -33,7 +33,7 @@ export default createStore({
     addTodo(state, payload) {
       state.list.push(payload)
     },
-    // delete splice(subscript, count)
+    // delete splice(subscript下标, count个数)
     delTodo(state, payload) {
       console.log(payload)
       state.list.splice(payload, 1)

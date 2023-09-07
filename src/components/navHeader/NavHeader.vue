@@ -19,6 +19,9 @@ export default defineComponent({
             // send input bar content to parent component
             ctx.emit('add', value.value)
             // console.log(value.value)
+
+            // clear input bar
+            value.value = ''
         }
         return {
             value,

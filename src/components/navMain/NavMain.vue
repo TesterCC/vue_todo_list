@@ -1,16 +1,23 @@
 <template>
     <!-- 编写html内容 -->
-    <div v-for="(item, index) in list" :key="index">
-        <div class="item">
-            <input type="checkbox" v-model="item.complete">
-            {{ item.title }}
-            <button class="del" @click="del(item, index)">delete</button> <!-- when mouse on, display delete button -->
+    <div>
+        <div v-if="list.length > 0">
+            <div v-for="(item, index) in list" :key="index">
+                <div class="item">
+                    <input type="checkbox" v-model="item.complete">
+                    {{ item.title }}
+                    <button class="del" @click="del(item, index)">delete</button>
+                    <!-- when mouse on, display delete button -->
+                </div>
+            </div>
         </div>
+        <div v-else> Here is no task </div>
     </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref} from 'vue'
+
 export default defineComponent({
     name: 'navMain',
     // 用 props 接收传递过来的 list
@@ -19,28 +26,15 @@ export default defineComponent({
             type: Array,
             required: true
         }
-
     },
-    setup() {
-        // let list = ref([
-        //     {
-        //         title: 'python',
-        //         complete: true
-        //     },
-        //     {
-        //         title: 'go',
-        //         complete: false
-        //     },
-        //     {
-        //         title: 'rust',
-        //         complete: false
-        //     }
-        // ])
+    setup(props, ctx) {
+        // 把要删除的对象分发出去
 
         // delete task
         let del = (item, index) => {
-            console.log(item)
-            console.log(index)
+            ctx.emit('del', index)
+            // console.log(item)
+            // console.log(index)
         }
         return {
             del

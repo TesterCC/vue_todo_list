@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed} from 'vue'
 export default defineComponent({
     name: 'navMain',
         // 用 props 接收传递过来的 list
@@ -21,13 +21,24 @@ export default defineComponent({
             required: true
         }
     },
-    setup() {
-        let isComplete = ref(1)
+    setup(props, ctx) {
+        let isComplete = computed(() => {
+            // 过滤已完成的
+            let arr = props.list.filter(item => {
+                // return item.complete   // 为true的，简化
+                return item.complete == true  // 为true的
+            })
+            return arr.length
+        })
 
         // clear finished
         let clear = () => {
-            console.log('clear')
-
+            // 过滤未完成的
+            let arr = props.list.filter(item => {
+                return item.complete == false  // 为true的
+            })
+            ctx.emit('clear', arr)
+            // console.log('clear')
         }
 
         return {

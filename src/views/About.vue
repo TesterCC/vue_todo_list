@@ -10,7 +10,7 @@
 <script>
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
-  // 4-2 4:53
+// 4-2
 export default defineComponent({
   name: 'About',
   setup(){
