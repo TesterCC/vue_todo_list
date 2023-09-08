@@ -28,7 +28,7 @@ export default defineComponent({
     },
     setup() {
         // router是全局路由对象
-        let router = useRouter()
+        // let router = useRouter()
         // route是当前路由对象
         let route = useRoute()
 
