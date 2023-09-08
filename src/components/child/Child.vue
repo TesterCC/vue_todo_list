@@ -4,9 +4,6 @@
         <!-- props接收的数据可以直接在模版中用 -->
         父组件传递过来的数据：{{ msg }}
 
-        <p></p>
-        <hr>
-        <p></p>
         <button @click="send">传值给父组件</button>
     </div>
 </template>
