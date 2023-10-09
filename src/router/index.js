@@ -47,6 +47,12 @@ const routes = [
     name: 'Detail',
     // 按需引入：如果没有访问 /about 就不会加载这个组件 节约性能  除了首页，其他页面都可以考虑 按需引入
     component: () => import('../views/Detail.vue')
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    // 按需引入：如果没有访问 /test 就不会加载这个组件 节约性能  除了首页，其他页面都可以考虑 按需引入
+    component: () => import('../views/Test.vue')
   }
 ]
 

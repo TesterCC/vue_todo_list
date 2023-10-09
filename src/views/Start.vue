@@ -4,6 +4,7 @@
     <h1>Start Page</h1>
     <button @click="start"> start to task </button>
     <button @click="detail"> jump to detail </button>
+    <button @click="test"> jump to test </button>
   </div>
 </template>
 
@@ -88,9 +89,28 @@ export default defineComponent({
         }
       })
     }
+
+
+    let test = () => {
+      // push 如果是传的对象的形式 就是可以传递参数
+      // push里面还可以传入name，这里的name是路由的名字(就是router/index.js中配置的路由的name)
+      // query传参用path和name都可以
+      // params传参只能用name
+      router.push({
+        // 官方已删除，可以通过pinia(vuex)等进行传递。 https://blog.csdn.net/lhkuxia/article/details/126832654
+        // method-2: params传参，失败，对于Vue Router而言，params参数用于传递路由路径中的动态参数，而不是用于传递任意的自定义参数。
+        // 当您尝试在params参数中传递非路由定义的参数时，Vue Router会认为这些参数是无效的，并发出警告。
+        // params 传递的参数需要先在路由中定义
+        name: "Test",
+        query: {
+        }
+      })
+    }
+
     return {
       start,
-      detail
+      detail,
+      test
     }
   }
 
